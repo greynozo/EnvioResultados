@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DATATECHModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIPTA">
+          <Key>
+            <PropertyRef Name="PTA" />
+          </Key>
+          <Property Name="PTA" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ORI" Type="char" MaxLength="1" Nullable="false" />
+          <Property Name="SER" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="STA_PRT" Type="char" MaxLength="10" />
+          <Property Name="MED" Type="char" MaxLength="60" />
+          <Property Name="MAT" Type="char" MaxLength="60" />
+          <Property Name="PRF" Type="char" MaxLength="7" />
+          <Property Name="EST_PAC" Type="char" MaxLength="1" />
+          <Property Name="EST_TEC" Type="char" MaxLength="1" />
+          <Property Name="REC_PAC" Type="smallint" />
+          <Property Name="REC_TEC" Type="smallint" />
+          <Property Name="REC_INS" Type="smallint" />
+          <Property Name="REC_RBO" Type="smallint" />
+          <Property Name="REC_FAC" Type="smallint" />
+          <Property Name="REC_GRD" Type="smallint" />
+          <Property Name="TXT_1" Type="char" MaxLength="70" />
+          <Property Name="TXT_2" Type="char" MaxLength="70" />
+          <Property Name="MMB_LET" Type="char" MaxLength="1" />
+          <Property Name="ENC_LET" Type="char" MaxLength="1" />
+          <Property Name="EST_LET" Type="char" MaxLength="1" />
+          <Property Name="MET_LET" Type="char" MaxLength="1" />
+          <Property Name="PIE_LET" Type="char" MaxLength="1" />
+          <Property Name="MMB_LIN" Type="smallint" />
+          <Property Name="ENC_LIN" Type="smallint" />
+          <Property Name="MMB_POS" Type="char" MaxLength="1" />
+          <Property Name="ENC_ANC" Type="smallint" />
+          <Property Name="ENC_MIZ" Type="smallint" />
+          <Property Name="EST_MIZ" Type="smallint" />
+          <Property Name="PIE_TXT_1" Type="char" MaxLength="71" />
+          <Property Name="PIE_TXT_2" Type="char" MaxLength="71" />
+          <Property Name="IPR" Type="char" MaxLength="1" />
+          <Property Name="GUA" Type="char" MaxLength="1" />
+          <Property Name="TXT_I" Type="text" />
+          <Property Name="TXT_F" Type="text" />
+          <Property Name="FIN" Type="datetime" />
+          <Property Name="FEG" Type="datetime" />
+          <Property Name="CNF_ORD" Type="char" MaxLength="1" />
+          <Property Name="TIP_PRE" Type="char" MaxLength="1" />
+          <Property Name="DES" Type="char" MaxLength="40" />
+          <Property Name="CMP_PRE" Type="char" MaxLength="10" />
+          <Property Name="DEP" Type="smallint" />
+          <Property Name="FME" Type="char" MaxLength="1" />
+          <Property Name="MGN_LFT" Type="smallint" />
+          <Property Name="MGN_RGT" Type="smallint" />
+          <Property Name="SOM" Type="char" MaxLength="1" />
+          <Property Name="MEQ_RIS" Type="char" MaxLength="8" />
+          <Property Name="MOD_RIS" Type="char" MaxLength="1" />
+          <Property Name="PRT" Type="smallint" />
+          <Property Name="ACT" Type="char" MaxLength="1" />
+          <Property Name="REC_ETQ" Type="char" MaxLength="1" />
+          <Property Name="PRC" Type="char" MaxLength="1" />
+          <Property Name="UNE" Type="int" />
+          <Property Name="FIR" Type="char" MaxLength="1" />
+          <Property Name="VRF_AUT" Type="char" MaxLength="1" />
+          <Property Name="FEN" Type="char" MaxLength="7" />
+          <Property Name="STA" Type="char" MaxLength="1" />
+          <Property Name="ANA" Type="char" MaxLength="6" />
+          <Property Name="REC_CPR" Type="smallint" />
+          <Property Name="PRT_ETQ" Type="char" MaxLength="1" />
+          <Property Name="TXT_3" Type="char" MaxLength="70" />
+          <Property Name="TXT_4" Type="char" MaxLength="70" />
+          <Property Name="EST" Type="char" MaxLength="64" />
+          <Property Name="CHK_DOC" Type="char" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="ESTUDIOS_ENVIADOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PTA" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="ORD" Type="int" Nullable="false" />
+          <Property Name="PAC" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="MAI" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="ENV" Type="date" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DATATECH.dbo.vw_Estudios' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_Estudios">
+          <Key>
+            <PropertyRef Name="PTA" />
+            <PropertyRef Name="NRO" />
+            <PropertyRef Name="FEC" />
+            <PropertyRef Name="PRF" />
+          </Key>
+          <Property Name="PTA" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="NRO" Type="int" Nullable="false" />
+          <Property Name="TIT" Type="char" MaxLength="60" />
+          <Property Name="COD" Type="char" MaxLength="8" />
+          <Property Name="TXT" Type="text" />
+          <Property Name="FEC" Type="datetime" Nullable="false" />
+          <Property Name="NDO" Type="int" />
+          <Property Name="NOM" Type="char" MaxLength="40" />
+          <Property Name="MAI" Type="char" MaxLength="50" />
+          <Property Name="DES" Type="char" MaxLength="35" />
+          <Property Name="PRF" Type="char" MaxLength="40" Nullable="false" />
+          <Property Name="ARC_FIR" Type="char" MaxLength="256" />
+        </EntityType>
+        <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'DATATECH.dbo.vw_Estudios_Enviados' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="vw_Estudios_Enviados">
+          <Key>
+            <PropertyRef Name="PTA" />
+            <PropertyRef Name="NRO" />
+            <PropertyRef Name="FEC" />
+            
+          </Key>
+          <Property Name="PTA" Type="char" MaxLength="3" Nullable="false" />
+          <Property Name="NRO" Type="int" Nullable="false" />
+          <Property Name="TIT" Type="char" MaxLength="60" />
+          <Property Name="COD" Type="char" MaxLength="8" />
+          <Property Name="FEC" Type="datetime" Nullable="false" />
+          <Property Name="TXT" Type="text" />
+          <Property Name="ENV" Type="date" />
+          <Property Name="NDO" Type="int" />
+          <Property Name="NOM" Type="char" MaxLength="40" />
+          <Property Name="MAI" Type="nvarchar" MaxLength="100" />
+          <Property Name="DES" Type="char" MaxLength="35" />
+          <Property Name="PRF" Type="char" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DATATECHModelStoreContainer">
+          <EntitySet Name="CLIPTA" EntityType="Self.CLIPTA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ESTUDIOS_ENVIADOS" EntityType="Self.ESTUDIOS_ENVIADOS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="vw_Estudios" EntityType="Self.vw_Estudios" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Estudios].[PTA] AS [PTA], 
+    [vw_Estudios].[NRO] AS [NRO], 
+    [vw_Estudios].[TIT] AS [TIT], 
+    [vw_Estudios].[COD] AS [COD], 
+    [vw_Estudios].[TXT] AS [TXT], 
+    [vw_Estudios].[FEC] AS [FEC], 
+    [vw_Estudios].[NDO] AS [NDO], 
+    [vw_Estudios].[NOM] AS [NOM], 
+    [vw_Estudios].[MAI] AS [MAI], 
+    [vw_Estudios].[DES] AS [DES], 
+    [vw_Estudios].[PRF] AS [PRF], 
+    [vw_Estudios].[ARC_FIR] AS [ARC_FIR]
+    FROM [dbo].[vw_Estudios] AS [vw_Estudios]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vw_Estudios_Enviados" EntityType="Self.vw_Estudios_Enviados" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [vw_Estudios_Enviados].[PTA] AS [PTA], 
+    [vw_Estudios_Enviados].[NRO] AS [NRO], 
+    [vw_Estudios_Enviados].[TIT] AS [TIT], 
+    [vw_Estudios_Enviados].[COD] AS [COD], 
+    [vw_Estudios_Enviados].[FEC] AS [FEC], 
+    [vw_Estudios_Enviados].[TXT] AS [TXT], 
+    [vw_Estudios_Enviados].[ENV] AS [ENV], 
+    [vw_Estudios_Enviados].[NDO] AS [NDO], 
+    [vw_Estudios_Enviados].[NOM] AS [NOM], 
+    [vw_Estudios_Enviados].[MAI] AS [MAI], 
+    [vw_Estudios_Enviados].[DES] AS [DES], 
+    [vw_Estudios_Enviados].[PRF] AS [PRF]
+    FROM [dbo].[vw_Estudios_Enviados] AS [vw_Estudios_Enviados]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DATATECHModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIPTA">
+          <Key>
+            <PropertyRef Name="PTA" />
+          </Key>
+          <Property Name="PTA" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="ORI" Type="String" MaxLength="1" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="SER" Type="String" MaxLength="3" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="STA_PRT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="MED" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="MAT" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="PRF" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="EST_PAC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EST_TEC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="REC_PAC" Type="Int16" />
+          <Property Name="REC_TEC" Type="Int16" />
+          <Property Name="REC_INS" Type="Int16" />
+          <Property Name="REC_RBO" Type="Int16" />
+          <Property Name="REC_FAC" Type="Int16" />
+          <Property Name="REC_GRD" Type="Int16" />
+          <Property Name="TXT_1" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+          <Property Name="TXT_2" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+          <Property Name="MMB_LET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ENC_LET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="EST_LET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MET_LET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PIE_LET" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MMB_LIN" Type="Int16" />
+          <Property Name="ENC_LIN" Type="Int16" />
+          <Property Name="MMB_POS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ENC_ANC" Type="Int16" />
+          <Property Name="ENC_MIZ" Type="Int16" />
+          <Property Name="EST_MIZ" Type="Int16" />
+          <Property Name="PIE_TXT_1" Type="String" MaxLength="71" FixedLength="true" Unicode="false" />
+          <Property Name="PIE_TXT_2" Type="String" MaxLength="71" FixedLength="true" Unicode="false" />
+          <Property Name="IPR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="GUA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TXT_I" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="TXT_F" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FIN" Type="DateTime" Precision="3" />
+          <Property Name="FEG" Type="DateTime" Precision="3" />
+          <Property Name="CNF_ORD" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TIP_PRE" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="DES" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="CMP_PRE" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="DEP" Type="Int16" />
+          <Property Name="FME" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MGN_LFT" Type="Int16" />
+          <Property Name="MGN_RGT" Type="Int16" />
+          <Property Name="SOM" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="MEQ_RIS" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="MOD_RIS" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PRT" Type="Int16" />
+          <Property Name="ACT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="REC_ETQ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="PRC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="UNE" Type="Int32" />
+          <Property Name="FIR" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="VRF_AUT" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="FEN" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+          <Property Name="STA" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="ANA" Type="String" MaxLength="6" FixedLength="true" Unicode="false" />
+          <Property Name="REC_CPR" Type="Int16" />
+          <Property Name="PRT_ETQ" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+          <Property Name="TXT_3" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+          <Property Name="TXT_4" Type="String" MaxLength="70" FixedLength="true" Unicode="false" />
+          <Property Name="EST" Type="String" MaxLength="64" FixedLength="true" Unicode="false" />
+          <Property Name="CHK_DOC" Type="String" MaxLength="1" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="DATATECHEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIPTA" EntityType="Self.CLIPTA" />
+          <EntitySet Name="ESTUDIOS_ENVIADOS" EntityType="DATATECHModel.ESTUDIOS_ENVIADOS" />
+          <EntitySet Name="vw_Estudios" EntityType="DATATECHModel.vw_Estudios" />
+          <EntitySet Name="vw_Estudios_Enviados" EntityType="DATATECHModel.vw_Estudios_Enviados" />
+        </EntityContainer>
+        <EntityType Name="ESTUDIOS_ENVIADOS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PTA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="ORD" Type="Int32" Nullable="false" />
+          <Property Name="PAC" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="MAI" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ENV" Type="DateTime" Nullable="false" Precision="0" />
+        </EntityType>
+        <EntityType Name="vw_Estudios">
+          <Key>
+            <PropertyRef Name="PTA" />
+            <PropertyRef Name="NRO" />
+            <PropertyRef Name="FEC" />
+            <PropertyRef Name="PRF" />
+          </Key>
+          <Property Name="PTA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="NRO" Type="Int32" Nullable="false" />
+          <Property Name="TIT" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="COD" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="TXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FEC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="NDO" Type="Int32" />
+          <Property Name="NOM" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="MAI" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="DES" Type="String" MaxLength="35" FixedLength="true" Unicode="false" />
+          <Property Name="PRF" Type="String" Nullable="false" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="ARC_FIR" Type="String" MaxLength="256" FixedLength="true" Unicode="false" />
+        </EntityType>
+        <EntityType Name="vw_Estudios_Enviados">
+          <Key>
+            <PropertyRef Name="PTA" />
+            <PropertyRef Name="NRO" />
+            <PropertyRef Name="FEC" />
+          </Key>
+          <Property Name="PTA" Type="String" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+          <Property Name="NRO" Type="Int32" Nullable="false" />
+          <Property Name="TIT" Type="String" MaxLength="60" FixedLength="true" Unicode="false" />
+          <Property Name="COD" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+          <Property Name="FEC" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TXT" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="ENV" Type="DateTime" Precision="0" />
+          <Property Name="NDO" Type="Int32" />
+          <Property Name="NOM" Type="String" MaxLength="40" FixedLength="true" Unicode="false" />
+          <Property Name="MAI" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="DES" Type="String" MaxLength="35" FixedLength="true" Unicode="false" />
+          <Property Name="PRF" Type="String" MaxLength="40" FixedLength="true" Unicode="false" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DATATECHModelStoreContainer" CdmEntityContainer="DATATECHEntities">
+          <EntitySetMapping Name="CLIPTA">
+            <EntityTypeMapping TypeName="DATATECHModel.CLIPTA">
+              <MappingFragment StoreEntitySet="CLIPTA">
+                <ScalarProperty Name="PTA" ColumnName="PTA" />
+                <ScalarProperty Name="ORI" ColumnName="ORI" />
+                <ScalarProperty Name="SER" ColumnName="SER" />
+                <ScalarProperty Name="STA_PRT" ColumnName="STA_PRT" />
+                <ScalarProperty Name="MED" ColumnName="MED" />
+                <ScalarProperty Name="MAT" ColumnName="MAT" />
+                <ScalarProperty Name="PRF" ColumnName="PRF" />
+                <ScalarProperty Name="EST_PAC" ColumnName="EST_PAC" />
+                <ScalarProperty Name="EST_TEC" ColumnName="EST_TEC" />
+                <ScalarProperty Name="REC_PAC" ColumnName="REC_PAC" />
+                <ScalarProperty Name="REC_TEC" ColumnName="REC_TEC" />
+                <ScalarProperty Name="REC_INS" ColumnName="REC_INS" />
+                <ScalarProperty Name="REC_RBO" ColumnName="REC_RBO" />
+                <ScalarProperty Name="REC_FAC" ColumnName="REC_FAC" />
+                <ScalarProperty Name="REC_GRD" ColumnName="REC_GRD" />
+                <ScalarProperty Name="TXT_1" ColumnName="TXT_1" />
+                <ScalarProperty Name="TXT_2" ColumnName="TXT_2" />
+                <ScalarProperty Name="MMB_LET" ColumnName="MMB_LET" />
+                <ScalarProperty Name="ENC_LET" ColumnName="ENC_LET" />
+                <ScalarProperty Name="EST_LET" ColumnName="EST_LET" />
+                <ScalarProperty Name="MET_LET" ColumnName="MET_LET" />
+                <ScalarProperty Name="PIE_LET" ColumnName="PIE_LET" />
+                <ScalarProperty Name="MMB_LIN" ColumnName="MMB_LIN" />
+                <ScalarProperty Name="ENC_LIN" ColumnName="ENC_LIN" />
+                <ScalarProperty Name="MMB_POS" ColumnName="MMB_POS" />
+                <ScalarProperty Name="ENC_ANC" ColumnName="ENC_ANC" />
+                <ScalarProperty Name="ENC_MIZ" ColumnName="ENC_MIZ" />
+                <ScalarProperty Name="EST_MIZ" ColumnName="EST_MIZ" />
+                <ScalarProperty Name="PIE_TXT_1" ColumnName="PIE_TXT_1" />
+                <ScalarProperty Name="PIE_TXT_2" ColumnName="PIE_TXT_2" />
+                <ScalarProperty Name="IPR" ColumnName="IPR" />
+                <ScalarProperty Name="GUA" ColumnName="GUA" />
+                <ScalarProperty Name="TXT_I" ColumnName="TXT_I" />
+                <ScalarProperty Name="TXT_F" ColumnName="TXT_F" />
+                <ScalarProperty Name="FIN" ColumnName="FIN" />
+                <ScalarProperty Name="FEG" ColumnName="FEG" />
+                <ScalarProperty Name="CNF_ORD" ColumnName="CNF_ORD" />
+                <ScalarProperty Name="TIP_PRE" ColumnName="TIP_PRE" />
+                <ScalarProperty Name="DES" ColumnName="DES" />
+                <ScalarProperty Name="CMP_PRE" ColumnName="CMP_PRE" />
+                <ScalarProperty Name="DEP" ColumnName="DEP" />
+                <ScalarProperty Name="FME" ColumnName="FME" />
+                <ScalarProperty Name="MGN_LFT" ColumnName="MGN_LFT" />
+                <ScalarProperty Name="MGN_RGT" ColumnName="MGN_RGT" />
+                <ScalarProperty Name="SOM" ColumnName="SOM" />
+                <ScalarProperty Name="MEQ_RIS" ColumnName="MEQ_RIS" />
+                <ScalarProperty Name="MOD_RIS" ColumnName="MOD_RIS" />
+                <ScalarProperty Name="PRT" ColumnName="PRT" />
+                <ScalarProperty Name="ACT" ColumnName="ACT" />
+                <ScalarProperty Name="REC_ETQ" ColumnName="REC_ETQ" />
+                <ScalarProperty Name="PRC" ColumnName="PRC" />
+                <ScalarProperty Name="UNE" ColumnName="UNE" />
+                <ScalarProperty Name="FIR" ColumnName="FIR" />
+                <ScalarProperty Name="VRF_AUT" ColumnName="VRF_AUT" />
+                <ScalarProperty Name="FEN" ColumnName="FEN" />
+                <ScalarProperty Name="STA" ColumnName="STA" />
+                <ScalarProperty Name="ANA" ColumnName="ANA" />
+                <ScalarProperty Name="REC_CPR" ColumnName="REC_CPR" />
+                <ScalarProperty Name="PRT_ETQ" ColumnName="PRT_ETQ" />
+                <ScalarProperty Name="TXT_3" ColumnName="TXT_3" />
+                <ScalarProperty Name="TXT_4" ColumnName="TXT_4" />
+                <ScalarProperty Name="EST" ColumnName="EST" />
+                <ScalarProperty Name="CHK_DOC" ColumnName="CHK_DOC" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTUDIOS_ENVIADOS">
+            <EntityTypeMapping TypeName="DATATECHModel.ESTUDIOS_ENVIADOS">
+              <MappingFragment StoreEntitySet="ESTUDIOS_ENVIADOS">
+                <ScalarProperty Name="ENV" ColumnName="ENV" />
+                <ScalarProperty Name="MAI" ColumnName="MAI" />
+                <ScalarProperty Name="PAC" ColumnName="PAC" />
+                <ScalarProperty Name="ORD" ColumnName="ORD" />
+                <ScalarProperty Name="PTA" ColumnName="PTA" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Estudios">
+            <EntityTypeMapping TypeName="DATATECHModel.vw_Estudios">
+              <MappingFragment StoreEntitySet="vw_Estudios">
+                <ScalarProperty Name="ARC_FIR" ColumnName="ARC_FIR" />
+                <ScalarProperty Name="PRF" ColumnName="PRF" />
+                <ScalarProperty Name="DES" ColumnName="DES" />
+                <ScalarProperty Name="MAI" ColumnName="MAI" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="NDO" ColumnName="NDO" />
+                <ScalarProperty Name="FEC" ColumnName="FEC" />
+                <ScalarProperty Name="TXT" ColumnName="TXT" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="TIT" ColumnName="TIT" />
+                <ScalarProperty Name="NRO" ColumnName="NRO" />
+                <ScalarProperty Name="PTA" ColumnName="PTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vw_Estudios_Enviados">
+            <EntityTypeMapping TypeName="DATATECHModel.vw_Estudios_Enviados">
+              <MappingFragment StoreEntitySet="vw_Estudios_Enviados">
+                <ScalarProperty Name="PRF" ColumnName="PRF" />
+                <ScalarProperty Name="DES" ColumnName="DES" />
+                <ScalarProperty Name="MAI" ColumnName="MAI" />
+                <ScalarProperty Name="NOM" ColumnName="NOM" />
+                <ScalarProperty Name="NDO" ColumnName="NDO" />
+                <ScalarProperty Name="ENV" ColumnName="ENV" />
+                <ScalarProperty Name="TXT" ColumnName="TXT" />
+                <ScalarProperty Name="FEC" ColumnName="FEC" />
+                <ScalarProperty Name="COD" ColumnName="COD" />
+                <ScalarProperty Name="TIT" ColumnName="TIT" />
+                <ScalarProperty Name="NRO" ColumnName="NRO" />
+                <ScalarProperty Name="PTA" ColumnName="PTA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
